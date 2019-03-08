@@ -1,0 +1,14 @@
+{:paths ["graphql/src"
+         "x-vec/src"]
+ :deps  {org.clojure/clojure       {:mvn/version "1.10.0"}
+         org.clojure/clojurescript {:mvn/version "1.10.520"}
+
+         appliedscience/js-interop {:mvn/version "0.1.10"}
+
+         athos/kitchen-async       {:git/url "https://github.com/athos/kitchen-async.git"
+                                    :sha     "68eca4b37e796cf0d3c1850a15560a1f71d47879"}
+
+         expound                   {:mvn/version "0.7.2"}
+
+         chia                      {:git/url "https://github.com/mhuebert/chia"
+                                    :sha     "dfba943fcd174a85d458e3246fe586dcb13bde7d"}}}
