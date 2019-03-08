@@ -2,7 +2,7 @@
   (:require [wip.graphql :as g]
             [wip.graphql.schema :as schema]
             [chia.util :as u]
-            [chia.triple-db.core :as d]
+            [chia.db.core :as d]
             [applied-science.js-interop :as j]
             [wip.graphql.normalize :as n]
             [wip.graphql.request :as request]

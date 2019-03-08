@@ -2,7 +2,7 @@
   (:require [cljs.test :as test :refer [deftest is are testing]]
             [wip.graphql.normalize :as n]
             [wip.graphql.schema :as schema]
-            [chia.triple-db.core :as d]
+            [chia.db.core :as d]
             [wip.graphql.root :as root]
             [wip.graphql.specs]
             [cljs.pprint :as pp]))

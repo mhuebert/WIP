@@ -1,7 +1,7 @@
 (ns wip.graphql.normalize
   (:require [wip.graphql :as g]
             [wip.x-vec :as x]
-            [chia.triple-db.core :as d]
+            [chia.db.core :as d]
             [chia.util :as u]
             [applied-science.js-interop :as j]
             [clojure.string :as str]
