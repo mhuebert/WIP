@@ -254,7 +254,7 @@
 (defmethod invoke-root :Mutation
   [root]
 
-  (when-let [view registry/*current-view*]
+  (when-let [view registry/*view*]
     (listen root {} view))
 
   (assoc (read-root root)
@@ -264,11 +264,11 @@
   (resolve! (merge this
                    #:root {:variables variables
                            :xkeys     xkeys
-                           :view      registry/*current-view*})))
+                           :view      registry/*view*})))
 
 (defmethod invoke-root :Query
   [root]
-  (if-let [view registry/*current-view*]
+  (if-let [view registry/*view*]
     (listen root {:on-mount resolve!} view)
     (resolve! root))
 
@@ -282,7 +282,7 @@
    (invoke-root (merge this
                        #:root {:variables variables
                                :xkeys     xkeys
-                               :view      registry/*current-view*}))))
+                               :view      registry/*view*}))))
 
 #_(defn invoke [root variables & xkeys]
     (let [[variables xkeys] (if (map? variables)
