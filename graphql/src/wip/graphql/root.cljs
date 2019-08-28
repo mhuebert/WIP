@@ -11,7 +11,7 @@
             [wip.graphql.exec :as exec]
             [clojure.string :as str]
             [cljs.pprint :as pp]
-            [chia.view.registry :as registry]))
+            [chia.reactive :as reactive]))
 
 (defonce cache (d/create))
 
@@ -254,7 +254,7 @@
 (defmethod invoke-root :Mutation
   [root]
 
-  (when-let [view registry/*view*]
+  (when-let [view reactive/*reader*]
     (listen root {} view))
 
   (assoc (read-root root)
@@ -264,11 +264,11 @@
   (resolve! (merge this
                    #:root {:variables variables
                            :xkeys     xkeys
-                           :view      registry/*view*})))
+                           :view      reactive/*reader*})))
 
 (defmethod invoke-root :Query
   [root]
-  (if-let [view registry/*view*]
+  (if-let [view reactive/*reader*]
     (listen root {:on-mount resolve!} view)
     (resolve! root))
 
@@ -282,7 +282,7 @@
    (invoke-root (merge this
                        #:root {:variables variables
                                :xkeys     xkeys
-                               :view      registry/*view*}))))
+                               :view      reactive/*reader*}))))
 
 #_(defn invoke [root variables & xkeys]
     (let [[variables xkeys] (if (map? variables)

@@ -1,5 +1,6 @@
 {:paths ["graphql/src"
-         "x-vec/src"]
+         "x-vec/src"
+         "routing/src"]
  :deps  {org.clojure/clojure       {:mvn/version "1.10.0"}
          org.clojure/clojurescript {:mvn/version "1.10.520"}
 
@@ -10,5 +11,8 @@
 
          expound                   {:mvn/version "0.7.2"}
 
-         chia                      {:git/url "https://github.com/mhuebert/chia"
-                                    :sha     "dfba943fcd174a85d458e3246fe586dcb13bde7d"}}}
+         chia                      {:local/root "../chia"}}
+ :aliases
+        {:release
+         {:override-deps {chia {:git/url "https://github.com/mhuebert/chia"
+                                :sha     "dfba943fcd174a85d458e3246fe586dcb13bde7d"}}}}}
