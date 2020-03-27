@@ -203,8 +203,8 @@
                                  (d/select-keys cache :cache/root lookup-keys)
                                  (g/children form))]
          (merge value
-                (select-keys root-entry [:async/loading?
-                                         :async/error])))))))
+                {:async/loading? (:async/loading? root-entry)
+                 :async/error (:async/error root-entry)}))))))
 
 (def read-fragment (partial n/read-fragment cache))
 
