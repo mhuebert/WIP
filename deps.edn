@@ -12,4 +12,4 @@
          expound                   {:mvn/version "0.7.2"}
 
          io.github.mhuebert/chia   {:git/sha "66c0f5e967f9f3bc189e5fdf30ac67c9199fc635"}}
- :aliases {:release {}}
+ :aliases {:release {}}}
